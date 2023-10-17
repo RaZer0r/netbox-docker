@@ -8,11 +8,6 @@ services:
     - redis-cache
     env_file: env/netbox.env
     user: 'unit:root'
-    healthcheck:
-      start_period: 60s
-      timeout: 3s
-      interval: 15s
-      test: "curl -f http://localhost:8080/api/ || exit 1"
     volumes:
     - ./configuration:/etc/netbox/config:z,ro
     - netbox-media-files:/opt/netbox/netbox/media:rw
